@@ -4,4 +4,5 @@ All the necessary things you can find in the index.html
 
 Preview:
 
-https://screenshots.matasdev.xyz/dHHAGP7k
+![image](https://github.com/MattasLT/m-loading/assets/143275079/1c27567d-4cdf-416c-8c06-f8c23671339e)
+
