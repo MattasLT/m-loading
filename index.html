@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="main.css"> !-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-9s5JkzvQ8v5+Jz5zjvJ5fZJ4yJZJ6zJzZJt2z3JZ4J6yvK7zJzjZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZzvzJZJZzvzJZJZJZzvzJZJZJZzvzJZJZJZzvzJZJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZJZzvzJZJZJZzvzJZJZJZzvzJZJZzvzJZJZzvzJZJZJZzvzJZJZzvzJZJZjw==" crossorigin="anonymous" />
+    <title>m-loading</title>
+</head>
+<body class="bg-gray-800">
+
+  <video id="myVideo" autoplay loop muted class="fixed top-0 left-0 w-screen h-full object-cover">
+    <source src="img/loading.mp4" type="video/mp4">
+  </video>
+  <div class="fixed top-0 left-0 w-full h-full flex items-center z-10">
+    <img class="text-white text-4xl font-bold opacity-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="img/logo.png" alt="">
+  </div>
+    <div class="fixed bottom-0 left-0 w-screen flex justify-center z-10">
+      <h1 class="text-white text-lg font-bold animate-pulse pl-8 mb-2 tracking-[6px]">NORINT UŽTILDYTI MUZIKĄ PASPAUSKITE SPACE</h1>
+    </div>
+
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+</style>  
+
+<audio id="audio_loading" src="music/calypso.mp3" autoplay  loop="true">
+<script>
+
+  var play = true;
+  var myAudio = document.getElementById("audio_loading");
+
+  myAudio.volume = 0.15;
+
+  function onKeyDown(event) {
+         switch (event.keyCode) {
+              case 32: //SpaceBar                    
+                  if (play) {
+                     myAudio.pause();
+                     play = false;
+                  } else {
+                      myAudio.play();
+                      play = true;
+                  }
+                  break;
+          }
+   return false;
+  }
+
+  window.addEventListener("keydown", onKeyDown, false);
+</script>
+ 
+</body>
+</html>
