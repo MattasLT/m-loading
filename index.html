@@ -22,7 +22,11 @@
     <div class="fixed bottom-0 left-0 w-screen flex justify-center z-10">
       <h1 class="text-white text-lg font-bold animate-pulse pl-8 mb-2 tracking-[6px]">NORINT UŽTILDYTI MUZIKĄ PASPAUSKITE SPACE</h1>
     </div>
-
+    <div class="text-white p-4 fixed bottom-0 right-0 mb-5">
+      <div class="text-lg font-bold mb-2">NXSTY - CALYPSO</div>
+      <div id="duration" class="text-sm opacity-50 mr-10">xx:xx / xx:xx</div>
+      </div>
+    </div>
   <style>
     body {
         margin: 0;
@@ -40,30 +44,36 @@
 </style>  
 
 <audio id="audio_loading" src="music/calypso.mp3" autoplay  loop="true">
-<script>
+  <script>
+    var play = true;
+    var audio = document.getElementById("audio_loading");
+    audio.volume = 0.15;
 
-  var play = true;
-  var myAudio = document.getElementById("audio_loading");
-
-  myAudio.volume = 0.15;
-
-  function onKeyDown(event) {
-         switch (event.keyCode) {
-              case 32: //SpaceBar                    
-                  if (play) {
-                     myAudio.pause();
-                     play = false;
-                  } else {
-                      myAudio.play();
-                      play = true;
-                  }
-                  break;
+    function onKeyDown(event) {
+      switch (event.keyCode) {
+        case 32: //SpaceBar                    
+          if (play) {
+            audio.pause();
+            play = false;
+          } else {
+            audio.play();
+            play = true;
           }
-   return false;
-  }
+          break;
+      }
+      return false;
+    }
 
-  window.addEventListener("keydown", onKeyDown, false);
-</script>
+    window.addEventListener("keydown", onKeyDown, false);
+
+    audio.addEventListener("timeupdate", function() {
+      var remainingTime = audio.duration - audio.currentTime;
+      var remainingMinutes = Math.floor(remainingTime / 60);
+      var remainingSeconds = Math.floor(remainingTime % 60);
+      var remainingString = remainingMinutes.toString().padStart(2, "0") + ":" + remainingSeconds.toString().padStart(2, "0");
+      document.getElementById("duration").textContent = remainingString;
+    });
+  </script>
  
 </body>
 </html>
