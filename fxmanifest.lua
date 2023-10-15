@@ -8,6 +8,7 @@ files {
     'index.html',
     'img/loading.mp4',
     'music/calypso.mp3',
+    'img/logo.png',
 }
 
 loadscreen 'index.html'
